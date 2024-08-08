@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Pantry System
 
-## Getting Started
+An inventory management system built using Next.js and Firebase.
 
-First, run the development server:
+## Table of Contents
+- [Introduction](#introduction)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Introduction
+Pantry System is a web application designed to help you manage your pantry inventory efficiently. With real-time updates and an intuitive interface, you can easily track your items, quantities, and expiration dates.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Features
+- Real-time inventory management
+- Add, edit, and delete pantry items
+- Track item quantities and expiration dates
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Technologies Used
+- **Frontend:** Next.js, React.js, Tailwind CSS
+- **Backend:** Firebase (Authentication, Firestore)
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Installation
+To run this project locally, follow these steps:
 
-## Learn More
+1. Clone the repository:
+    ```sh
+    git clone git@github.com:SamarNaqvi/Pantry-System.git
+    cd Pantry-System
+    ```
 
-To learn more about Next.js, take a look at the following resources:
+2. Install dependencies:
+    ```sh
+    npm install
+    # or
+    yarn install
+    ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. Set up Firebase:
+    - Create a Firebase project.
+    - Add your Firebase configuration to `firebase.js`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+4. Run the development server:
+    ```sh
+    npm run dev
+    # or
+    yarn dev
+    ```
 
-## Deploy on Vercel
+5. Open [vercel-deployment-link](https://pentry-system-ig1rbaw5t-samars-projects-8bb75ca3.vercel.app/) to view it in the browser.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Usage
+1. **Add new items** to your pantry with details like name, quantity, and expiration date.
+2. **Edit or delete items** as needed to keep your inventory up-to-date.
+3. **Monitor your pantry using search** to ensure you never run out of essential items.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Contributing
+Contributions are welcome! Please follow these steps to contribute:
+
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature/YourFeature`).
+3. Make your changes and commit them (`git commit -m 'Add some feature'`).
+4. Push to the branch (`git push origin feature/YourFeature`).
+5. Open a Pull Request.
+
+## License
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.

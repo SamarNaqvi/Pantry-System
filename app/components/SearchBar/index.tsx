@@ -1,8 +1,12 @@
 "use client";
 
-import { useState } from "react";
-
-const SearchBar = ({ searchField, setSearchField }) => {
+const SearchBar = ({
+  searchField,
+  setSearchField,
+}: {
+  searchField: string;
+  setSearchField: Function;
+}) => {
   return (
     <div className="items-center px-4 flex justify-center">
       <div className="relative mr-3">

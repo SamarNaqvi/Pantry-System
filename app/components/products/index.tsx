@@ -243,7 +243,9 @@ export const Products = () => {
           <thead>
             <tr>
               {columns.map((column) => (
-                <th className="px-5 pt-5 pb-2 font-bold">{column}</th>
+                <th key={column} className="px-5 pt-5 pb-2 font-bold">
+                  {column}
+                </th>
               ))}
             </tr>
           </thead>

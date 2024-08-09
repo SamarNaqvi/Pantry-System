@@ -50,7 +50,8 @@ To run this project locally, follow these steps:
     yarn dev
     ```
 
-5. Open [vercel-deployment-link](https://pentry-system-ig1rbaw5t-samars-projects-8bb75ca3.vercel.app/) to view it in the browser.
+
+5. Open [vercel-deployment-link](https://pantry-system-latest.vercel.app/) to view it in the browser.
 
 ## Usage
 1. **Add new items** to your pantry with details like name, quantity, and expiration date.

@@ -17,10 +17,10 @@ function AddProduct({
 }) {
   const [productTitle, setProductTitle] = useState("");
   const [productPrice, setProductPrice] = useState("");
-  const [productCreation, setProductCreation] = useState(new Date());
+  const [productCreation, setProductCreation] = useState("");
   const [productImg, setProductImg] = useState("");
 
-  const editProductLocal = () => {
+  const addProductLocal = () => {
     if (!productTitle || !productPrice || !productCreation || !productImg)
       return false;
     addProduct({
@@ -36,7 +36,7 @@ function AddProduct({
       setShowModal={setShowModal}
       showModal={showModal}
       title={"Add Product"}
-      onsubmit={editProductLocal}
+      onsubmit={addProductLocal}
     >
       <div>
         <Input
@@ -56,6 +56,15 @@ function AddProduct({
           type="text"
           label="Price"
           placeholder="Enter Product Price"
+        />
+        <Input
+          className="mt-5"
+          value={productCreation}
+          onChange={(e) => setProductCreation(e.target.value)}
+          id="creation"
+          type="text"
+          label="Created At"
+          placeholder="Enter Product Creation Date"
         />
         <div className="mt-5 relative mb-28">
           <UploadButton

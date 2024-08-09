@@ -238,9 +238,9 @@ export const Products = () => {
         />
       )}
 
-      <div className="bg-slate-50 rounded p-2 font-normal text-center table-fixed w-full max-h-[40rem] overflow-y-scroll">
+      <div className="bg-slate-50 rounded font-normal text-center table-fixed w-full max-h-[34rem]  overflow-y-scroll">
         <table className={`${styles.table} w-full`}>
-          <thead>
+          <thead className=" top-0 sticky z-20 bg-slate-100">
             <tr>
               {columns.map((column) => (
                 <th key={column} className="px-5 pt-5 pb-2 font-bold">
@@ -249,7 +249,7 @@ export const Products = () => {
               ))}
             </tr>
           </thead>
-          <tbody className="h-10 overflow-y-scroll">
+          <tbody className="overflow-y-scroll">
             {filteredProds.map((product) => (
               <tr key={product.id}>
                 <td className="flex items-center gap-x-2">

@@ -18,10 +18,12 @@ Pantry System is a web application designed to help you manage your pantry inven
 - Real-time inventory management
 - Add, edit, and delete pantry items
 - Track item quantities and expiration dates
+- AI ChatBot that acts as customer support.
 
 ## Technologies Used
 - **Frontend:** Next.js, React.js, Tailwind CSS
-- **Backend:** Firebase (Authentication, Firestore)
+- **Backend:** Firebase (Firestore)
+- **AI:** GroqCloud api + Next.js Routing
 
 ## Installation
 To run this project locally, follow these steps:
@@ -57,6 +59,7 @@ To run this project locally, follow these steps:
 1. **Add new items** to your pantry with details like name, quantity, and expiration date.
 2. **Edit or delete items** as needed to keep your inventory up-to-date.
 3. **Monitor your pantry using search** to ensure you never run out of essential items.
+4. **Ask AI** AI-based chatbot for customer support.
 
 ## Contributing
 Contributions are welcome! Please follow these steps to contribute:

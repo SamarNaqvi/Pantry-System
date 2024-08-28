@@ -31,7 +31,11 @@ export default function RootLayout({
            */
           routerConfig={extractRouterConfig(ourFileRouter)}
         />
-        {children}
+        <div className="background-img">
+          <div className="p-10 " style={{ height: "100vh" }}>
+            {children}
+          </div>
+        </div>
       </body>
     </html>
   );

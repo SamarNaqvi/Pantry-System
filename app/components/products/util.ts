@@ -1,4 +1,4 @@
-export const columns = ["Title", "Price", "CreatedAt", "Edit"];
+export const columns = ["Title", "price", "CreatedAt", "Edit"];
 
 import { firestore } from "../../../firebase";
 import { collection, getDocs, query } from "firebase/firestore";

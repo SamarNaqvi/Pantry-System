@@ -3,11 +3,17 @@
 import styles from "./index.module.css";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import { Product, columns, getProductNames, getProducts } from "./util";
-import { EditIcon, DeleteIcon } from "Icons/index.js";
+import { Product, columns, getProducts } from "./util";
+import {
+  EditIcon,
+  DeleteIcon,
+  ChatBotIcon,
+  AddProductIcon,
+} from "Icons/index.js";
 import AddProduct from "components/AddProductModal";
 import EditProduct from "components/EditProductModal";
 import { firestore } from "../../../firebase";
+import Link from "next/link";
 import {
   collection,
   doc,
@@ -18,7 +24,6 @@ import {
   getDoc,
 } from "firebase/firestore";
 import SearchBar from "components/SearchBar";
-import { getOpenAIResponse } from "../../../magixbox";
 
 export const Products = () => {
   const [products, setProducts] = useState<Product[]>([]);
@@ -32,7 +37,6 @@ export const Products = () => {
     createdAt: "",
     imgSrc: "",
   });
-  const [gptResp, setGptResp] = useState("");
 
   const updateInventory = async () => {
     const snapshot = query(collection(firestore, "inventory-db"));
@@ -74,15 +78,7 @@ export const Products = () => {
     await updateInventory();
   };
 
-  const chatGptResp = async () => {
-    const prodNames = await getProductNames();
-    getOpenAIResponse(prodNames).then((resp) => {
-      //setGptResp(resp);
-    });
-  };
-
   useEffect(() => {
-    //chatGptResp();
     updateInventory();
   }, []);
 
@@ -130,72 +126,11 @@ export const Products = () => {
     <>
       <div className="flex mb-6 -gap-2">
         <div className="flex items-center space-x-4 justify-self-start">
-          <svg
-            width="40"
-            height="40"
-            viewBox="0 0 200 200"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <circle
-              cx="100"
-              cy="100"
-              r="95"
-              stroke="#6C757D"
-              stroke-width="10"
-              fill="none"
-            />
-
-            <rect
-              x="50"
-              y="70"
-              width="100"
-              height="60"
-              fill="#007BFF"
-              stroke="#6C757D"
-              stroke-width="5"
-            />
-            <line
-              x1="50"
-              y1="70"
-              x2="100"
-              y2="30"
-              stroke="#6C757D"
-              stroke-width="5"
-            />
-            <line
-              x1="150"
-              y1="70"
-              x2="100"
-              y2="30"
-              stroke="#6C757D"
-              stroke-width="5"
-            />
-
-            <line
-              x1="80"
-              y1="130"
-              x2="80"
-              y2="160"
-              stroke="#6C757D"
-              stroke-width="5"
-            />
-            <line
-              x1="120"
-              y1="130"
-              x2="120"
-              y2="160"
-              stroke="#6C757D"
-              stroke-width="5"
-            />
-            <circle cx="80" cy="170" r="5" fill="#007BFF" />
-            <circle cx="120" cy="170" r="5" fill="#007BFF" />
-          </svg>
-
-          <span className={`${styles.logotext} text-gray-800`}>
-            Pantry System
+          <span className={`${styles.logotext} text-slate-100`}>
+            PANTRY SYSTEM
           </span>
         </div>
-        <div className="ml-auto flex">
+        <div className="ml-auto flex gap-x-2">
           <SearchBar
             searchField={searchField}
             setSearchField={setSearchField}
@@ -204,22 +139,18 @@ export const Products = () => {
             onClick={() => {
               setShowModal(!showModal);
             }}
-            className="flex items-center bg-blue-500 text-white font-bold px-4 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition ease-in-out duration-150"
+            className="flex items-center bg-slate-900 text-slate-100 font-bold px-4 rounded hover:bg-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition ease-in-out duration-150"
           >
-            <svg
-              className="w-5 h-5 mr-2"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M12 5v14m7-7H5" />
-            </svg>
+            <AddProductIcon />
             Add Product
           </button>
+          <Link
+            href="/ask-ai"
+            className="flex items-center bg-slate-900 text-slate-100 font-bold px-6 rounded hover:bg-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition ease-in-out duration-150"
+          >
+            <ChatBotIcon />
+            Chat Bot
+          </Link>
         </div>
       </div>
       {showModal && (
@@ -238,12 +169,15 @@ export const Products = () => {
         />
       )}
 
-      <div className="bg-slate-50 rounded font-normal text-center table-fixed w-full max-h-[34rem]  overflow-y-scroll">
+      <div className="bg-gray-700 rounded font-normal text-center table-fixed w-full max-h-[40rem] overflow-y-scroll">
         <table className={`${styles.table} w-full`}>
-          <thead className=" top-0 sticky z-20 bg-slate-100">
+          <thead className=" top-0 sticky z-20 bg-slate-900">
             <tr>
               {columns.map((column) => (
-                <th key={column} className="px-5 pt-5 pb-2 font-bold">
+                <th
+                  key={column}
+                  className="px-5 pt-5 pb-2 font-bold text-slate-50"
+                >
                   {column}
                 </th>
               ))}
@@ -251,11 +185,11 @@ export const Products = () => {
           </thead>
           <tbody className="overflow-y-scroll">
             {filteredProds.map((product) => (
-              <tr key={product.id}>
+              <tr key={product.id} className="max-h-4">
                 <td className="flex items-center gap-x-2">
                   {product.imgSrc && (
                     <Image
-                      className="rounded"
+                      className="rounded max-h-12"
                       alt="product img"
                       height={100}
                       width={90}

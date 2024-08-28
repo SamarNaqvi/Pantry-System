@@ -1,14 +1,15 @@
 .table tr td {
-  padding: 1.5rem;
+  padding: 0.8rem 1.5rem;
+  @apply text-slate-300;
 }
 
 .table tr:not(:last-child),
 .table thead tr {
-  @apply border border-t-0 border-l-0 border-r-0 border-solid border-slate-300;
+  @apply border border-t-0 border-l-0 border-r-0 border-solid border-slate-800;
 }
 
 .table tr:hover {
-  @apply bg-slate-200 cursor-pointer transition-all;
+  @apply bg-slate-500 cursor-pointer transition-all;
 }
 
 .logotext {

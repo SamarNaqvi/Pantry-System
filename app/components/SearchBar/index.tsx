@@ -8,8 +8,8 @@ const SearchBar = ({
   setSearchField: Function;
 }) => {
   return (
-    <div className="items-center px-4 flex justify-center">
-      <div className="relative mr-3">
+    <div className="items-center flex justify-center">
+      <div className="relative">
         <div className="absolute top-3 left-3 items-center">
           <svg
             className="w-5 h-5 text-gray-500"
@@ -28,7 +28,7 @@ const SearchBar = ({
           type="text"
           value={searchField}
           onChange={(e) => setSearchField(e.target.value)}
-          className="block p-2 pl-10 w-70 text-gray-900 bg-slate-100 rounded border border-gray-300 focus:border-none focus:outline-gray-400 focus:outline-1"
+          className="block p-2 pl-10 w-70 text-gray-900 bg-slate-100 rounded border border-gray-300 focus:border-none focus:outline-slate-800 focus:outline-1"
           placeholder="Search Here..."
         />
       </div>

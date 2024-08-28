@@ -53,7 +53,7 @@ To run this project locally, follow these steps:
     ```
 
 
-5. Open [vercel-deployment-link](https://pantry-system-phi.vercel.app/) to view it in the browser.
+5. Open [vercel-deployment-link](https://ai-pantry-system.vercel.app/ask-ai) to view it in the browser.
 
 ## Usage
 1. **Add new items** to your pantry with details like name, quantity, and expiration date.

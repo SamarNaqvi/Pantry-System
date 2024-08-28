@@ -93,8 +93,9 @@ function AskAI() {
       </div>
       <div className="mt-5 rounded-sm max-h-[35rem] h-[35rem] overflow-y-auto border-solid border-[0.5px] border-slate-500 bg-slate-900">
         <ul className="p-2">
-          {messages.map((msg) => (
+          {messages.map((msg, ind) => (
             <li
+              key={ind}
               className={`flex ${
                 msg.role === "user" ? "justify-end ml-auto" : "justify-start"
               } mb-4`}
